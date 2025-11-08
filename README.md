@@ -105,6 +105,9 @@ Used built-in class weight parameters (`class_weight` and `scale_pos_weight`) to
 - High reliability prevents alert fatigue and builds trust with maintenance teams
 - Extremely accurate failure predictions enable confident maintenance scheduling
 
+  <img width="846" height="624" alt="image" src="https://github.com/user-attachments/assets/19257029-ae4c-4423-9af7-92cfa7bfb7f1" />
+
+
 ## Business Impact
 
 Deploying this predictive model enables TATA Steel to achieve:
