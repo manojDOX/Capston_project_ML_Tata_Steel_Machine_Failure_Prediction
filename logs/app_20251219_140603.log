@@ -1,0 +1,77 @@
+2025-12-19 14:06:03,138 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:03,138 - main_pipeline - INFO - TATA STEEL MACHINE FAILURE PREDICTION - ML PIPELINE
+2025-12-19 14:06:03,138 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:03,139 - main_pipeline - INFO - Pipeline started at: 2025-12-19 14:06:03
+2025-12-19 14:06:03,139 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:03,139 - main_pipeline - INFO - STEP 1: DATA LOADING
+2025-12-19 14:06:03,139 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:20,389 - main_pipeline - INFO - Complete dataset shape: (136429, 14)
+2025-12-19 14:06:20,389 - main_pipeline - INFO - Dataset contains target column 'Machine failure': True
+2025-12-19 14:06:20,390 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:20,390 - main_pipeline - INFO - STEP 2: DATA PREPROCESSING
+2025-12-19 14:06:20,390 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:20,853 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:20,853 - main_pipeline - INFO - STEP 3: MODEL TRAINING
+2025-12-19 14:06:20,853 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:51,612 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:51,612 - main_pipeline - INFO - STEP 4: COMPREHENSIVE MODEL TESTING
+2025-12-19 14:06:51,612 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:51,612 - testing - INFO - ==================================================
+2025-12-19 14:06:51,613 - testing - INFO - Starting Model Testing
+2025-12-19 14:06:51,613 - testing - INFO - ==================================================
+2025-12-19 14:06:51,630 - testing - INFO - Generating detailed evaluation report...
+2025-12-19 14:06:51,769 - testing - INFO - 
+--- Test Set Performance Summary ---
+2025-12-19 14:06:51,770 - testing - INFO - ROC-AUC Score: 0.9445
+2025-12-19 14:06:51,770 - testing - INFO - Precision-Recall AUC: 0.7996
+2025-12-19 14:06:51,770 - testing - INFO - 
+Class 1 (Machine Failure) Metrics:
+2025-12-19 14:06:51,770 - testing - INFO -   Recall: 0.8634
+2025-12-19 14:06:51,770 - testing - INFO -   Precision: 0.2104
+2025-12-19 14:06:51,770 - testing - INFO -   F1-Score: 0.3383
+2025-12-19 14:06:51,770 - testing - INFO - 
+Confusion Matrix:
+2025-12-19 14:06:51,770 - testing - INFO -   TN: 38198, FP: 2087
+2025-12-19 14:06:51,771 - testing - INFO -   FN: 88, TP: 556
+2025-12-19 14:06:51,771 - testing - INFO - 
+Analyzing feature importance...
+2025-12-19 14:06:51,773 - testing - INFO - 
+Top 10 Most Important Features:
+2025-12-19 14:06:51,773 - testing - INFO -   OSF: 256.0000
+2025-12-19 14:06:51,773 - testing - INFO -   TWF: 203.0000
+2025-12-19 14:06:51,774 - testing - INFO -   Torque_Nm_: 202.0000
+2025-12-19 14:06:51,774 - testing - INFO -   Rotational_speed_rpm_: 186.0000
+2025-12-19 14:06:51,774 - testing - INFO -   HDF: 184.0000
+2025-12-19 14:06:51,774 - testing - INFO -   PWF: 144.0000
+2025-12-19 14:06:51,774 - testing - INFO -   Tool_wear_min_: 140.0000
+2025-12-19 14:06:51,774 - testing - INFO -   Air_temperature_K_: 85.0000
+2025-12-19 14:06:51,774 - testing - INFO -   RNF: 0.0000
+2025-12-19 14:06:51,775 - testing - INFO -   Type_encoded: 0.0000
+2025-12-19 14:06:53,158 - testing - INFO - Confusion matrix plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\confusion_matrix.png
+2025-12-19 14:06:53,404 - testing - INFO - ROC curve plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\roc_curve.png
+2025-12-19 14:06:53,615 - testing - INFO - Precision-Recall curve plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\precision_recall_curve.png
+2025-12-19 14:06:53,620 - testing - INFO - 
+Model testing completed successfully
+2025-12-19 14:06:53,621 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:53,621 - main_pipeline - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2025-12-19 14:06:53,621 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:53,621 - main_pipeline - INFO - Total execution time: 0:00:50.482792
+2025-12-19 14:06:53,621 - main_pipeline - INFO - Pipeline ended at: 2025-12-19 14:06:53
+2025-12-19 14:06:53,622 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:06:53,622 - main_pipeline - INFO - FINAL RESULTS SUMMARY
+2025-12-19 14:06:53,622 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:06:53,622 - main_pipeline - INFO - ROC-AUC Score: 0.9445
+2025-12-19 14:06:53,622 - main_pipeline - INFO - Precision-Recall AUC: 0.7996
+2025-12-19 14:06:53,622 - main_pipeline - INFO - Test Recall (Class 1): 0.8634
+2025-12-19 14:06:53,623 - main_pipeline - INFO - Test Precision (Class 1): 0.2104
+2025-12-19 14:06:53,623 - main_pipeline - INFO - Test F1-Score (Class 1): 0.3383
+2025-12-19 14:06:53,623 - main_pipeline - INFO - 
+[SUCCESS] All models and artifacts have been saved successfully
+2025-12-19 14:06:53,623 - main_pipeline - INFO - [INFO] Check the 'models/saved_models/' directory for trained models
+2025-12-19 14:06:53,623 - main_pipeline - INFO - [INFO] Check the 'logs/plots/' directory for visualization plots

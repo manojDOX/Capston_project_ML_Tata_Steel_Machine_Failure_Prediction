@@ -1,0 +1,6 @@
+2025-12-19 14:20:38,889 - utils - INFO - Loading dataset...
+2025-12-19 14:20:54,611 - utils - INFO - Dataset loaded successfully: (136429, 14)
+2025-12-19 14:20:54,611 - utils - INFO - Columns: ['id', 'Product ID', 'Type', 'Air temperature [K]', 'Process temperature [K]', 'Rotational speed [rpm]', 'Torque [Nm]', 'Tool wear [min]', 'Machine failure', 'TWF', 'HDF', 'PWF', 'OSF', 'RNF']
+2025-12-19 14:20:57,007 - utils - INFO - Model saved successfully to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\models\saved_models\lgbm_base_model.pkl
+2025-12-19 14:21:24,124 - utils - INFO - Model saved successfully to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\models\saved_models\lgbm_tuned_model.pkl
+2025-12-19 14:21:24,538 - utils - INFO - Model loaded successfully from D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\models\saved_models\lgbm_tuned_model.pkl

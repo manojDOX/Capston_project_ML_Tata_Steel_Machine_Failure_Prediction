@@ -1,0 +1,205 @@
+2025-12-19 14:20:38,888 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:20:38,888 - main_pipeline - INFO - TATA STEEL MACHINE FAILURE PREDICTION - ML PIPELINE
+2025-12-19 14:20:38,888 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:20:38,888 - main_pipeline - INFO - Pipeline started at: 2025-12-19 14:20:38
+2025-12-19 14:20:38,889 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:20:38,889 - main_pipeline - INFO - STEP 1: DATA LOADING
+2025-12-19 14:20:38,889 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:20:54,611 - main_pipeline - INFO - Complete dataset shape: (136429, 14)
+2025-12-19 14:20:54,612 - main_pipeline - INFO - Dataset contains target column 'Machine failure': True
+2025-12-19 14:20:54,612 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:20:54,612 - main_pipeline - INFO - STEP 2: DATA PREPROCESSING
+2025-12-19 14:20:54,612 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:20:54,613 - preprocessing - INFO - Starting preprocessing pipeline...
+2025-12-19 14:20:54,613 - preprocessing - INFO - Cleaning column names...
+2025-12-19 14:20:54,613 - preprocessing - INFO - Column names cleaned successfully
+2025-12-19 14:20:54,614 - preprocessing - INFO - Checking for missing values...
+2025-12-19 14:20:54,626 - preprocessing - INFO - No missing values found
+2025-12-19 14:20:54,626 - preprocessing - INFO - Encoding categorical features...
+2025-12-19 14:20:54,632 - preprocessing - INFO - Type column encoded: L=1, M=2, H=3
+2025-12-19 14:20:54,633 - preprocessing - INFO - Selecting final features for modeling...
+2025-12-19 14:20:54,642 - preprocessing - INFO - Final dataset shape: (136429, 11)
+2025-12-19 14:20:54,643 - preprocessing - INFO - Preprocessing pipeline completed successfully
+2025-12-19 14:20:54,643 - preprocessing - INFO - Splitting data into train and test sets...
+2025-12-19 14:20:54,700 - preprocessing - INFO - Training set shape: X=(95500, 10), y=(95500,)
+2025-12-19 14:20:54,700 - preprocessing - INFO - Test set shape: X=(40929, 10), y=(40929,)
+2025-12-19 14:20:54,702 - preprocessing - INFO - Class distribution in train: {0: 93996, 1: 1504}
+2025-12-19 14:20:54,702 - preprocessing - INFO - Class distribution in test: {0: 40285, 1: 644}
+2025-12-19 14:20:54,703 - preprocessing - INFO - Saving processed data...
+2025-12-19 14:20:55,005 - preprocessing - INFO - Processed data saved successfully
+2025-12-19 14:20:55,006 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:20:55,006 - main_pipeline - INFO - STEP 3: MODEL TRAINING
+2025-12-19 14:20:55,007 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:20:55,007 - training - INFO - ==================================================
+2025-12-19 14:20:55,007 - training - INFO - Training Base LightGBM Model
+2025-12-19 14:20:55,008 - training - INFO - ==================================================
+2025-12-19 14:20:55,008 - training - INFO - Fitting base model...
+2025-12-19 14:20:57,002 - training - INFO - Base model training completed successfully
+2025-12-19 14:20:57,008 - training - INFO - 
+==================================================
+2025-12-19 14:20:57,008 - training - INFO - Evaluating Base LightGBM Model
+2025-12-19 14:20:57,008 - training - INFO - ==================================================
+2025-12-19 14:20:57,216 - training - INFO - 
+--- Training Set Performance ---
+2025-12-19 14:20:57,270 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99     93996
+           1       0.47      0.98      0.63      1504
+
+    accuracy                           0.98     95500
+   macro avg       0.73      0.98      0.81     95500
+weighted avg       0.99      0.98      0.99     95500
+
+2025-12-19 14:20:57,271 - training - INFO - 
+--- Test Set Performance ---
+2025-12-19 14:20:57,298 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99     40285
+           1       0.41      0.84      0.55       644
+
+    accuracy                           0.98     40929
+   macro avg       0.70      0.91      0.77     40929
+weighted avg       0.99      0.98      0.98     40929
+
+2025-12-19 14:20:57,298 - training - INFO - 
+--- Key Metrics for Machine Failure (Class 1) ---
+2025-12-19 14:20:57,299 - training - INFO - Test Recall: 0.8385
+2025-12-19 14:20:57,299 - training - INFO - Test Precision: 0.4122
+2025-12-19 14:20:57,299 - training - INFO - Test F1-Score: 0.5527
+2025-12-19 14:20:57,302 - training - INFO - 
+Test Confusion Matrix:
+[[39515   770]
+ [  104   540]]
+2025-12-19 14:20:57,302 - training - INFO - ==================================================
+2025-12-19 14:20:57,302 - training - INFO - Hyperparameter Tuning with Randomized Search
+2025-12-19 14:20:57,302 - training - INFO - ==================================================
+2025-12-19 14:20:57,302 - training - INFO - Setting up RandomizedSearchCV with 10 iterations...
+2025-12-19 14:20:57,302 - training - INFO - Starting hyperparameter search...
+2025-12-19 14:21:24,105 - training - INFO - 
+Best CV Score (f1): 0.8598
+2025-12-19 14:21:24,106 - training - INFO - 
+Best Parameters:
+2025-12-19 14:21:24,106 - training - INFO -   reg_lambda: 0.4
+2025-12-19 14:21:24,106 - training - INFO -   reg_alpha: 0.8
+2025-12-19 14:21:24,106 - training - INFO -   num_leaves: 15
+2025-12-19 14:21:24,106 - training - INFO -   n_estimators: 200
+2025-12-19 14:21:24,106 - training - INFO -   min_child_weight: 0.001
+2025-12-19 14:21:24,106 - training - INFO -   min_child_samples: 10
+2025-12-19 14:21:24,106 - training - INFO -   max_depth: 5
+2025-12-19 14:21:24,107 - training - INFO -   learning_rate: 0.1
+2025-12-19 14:21:24,107 - training - INFO -   class_weight: None
+2025-12-19 14:21:24,125 - training - INFO - 
+Hyperparameter tuning completed successfully
+2025-12-19 14:21:24,125 - training - INFO - 
+==================================================
+2025-12-19 14:21:24,125 - training - INFO - Evaluating Tuned LightGBM Model
+2025-12-19 14:21:24,125 - training - INFO - ==================================================
+2025-12-19 14:21:24,397 - training - INFO - 
+--- Training Set Performance ---
+2025-12-19 14:21:24,444 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     93996
+           1       0.99      0.78      0.87      1504
+
+    accuracy                           1.00     95500
+   macro avg       0.99      0.89      0.93     95500
+weighted avg       1.00      1.00      1.00     95500
+
+2025-12-19 14:21:24,444 - training - INFO - 
+--- Test Set Performance ---
+2025-12-19 14:21:24,476 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     40285
+           1       0.97      0.77      0.86       644
+
+    accuracy                           1.00     40929
+   macro avg       0.99      0.88      0.93     40929
+weighted avg       1.00      1.00      1.00     40929
+
+2025-12-19 14:21:24,476 - training - INFO - 
+--- Key Metrics for Machine Failure (Class 1) ---
+2025-12-19 14:21:24,476 - training - INFO - Test Recall: 0.7702
+2025-12-19 14:21:24,477 - training - INFO - Test Precision: 0.9745
+2025-12-19 14:21:24,477 - training - INFO - Test F1-Score: 0.8604
+2025-12-19 14:21:24,481 - training - INFO - 
+Test Confusion Matrix:
+[[40272    13]
+ [  148   496]]
+2025-12-19 14:21:24,481 - training - INFO - 
+==================================================
+2025-12-19 14:21:24,481 - training - INFO - Model Comparison Summary
+2025-12-19 14:21:24,481 - training - INFO - ==================================================
+2025-12-19 14:21:24,481 - training - INFO - 
+Class 1 (Machine Failure) Metrics:
+2025-12-19 14:21:24,482 - training - INFO - 
+Metric          Base Model      Tuned Model     Change         
+2025-12-19 14:21:24,482 - training - INFO - ------------------------------------------------------------
+2025-12-19 14:21:24,482 - training - INFO - Recall          0.8385          0.7702          -0.0683
+2025-12-19 14:21:24,482 - training - INFO - Precision       0.4122          0.9745          +0.5622
+2025-12-19 14:21:24,483 - training - INFO - F1-Score        0.5527          0.8604          +0.3077
+2025-12-19 14:21:24,505 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:21:24,505 - main_pipeline - INFO - STEP 4: COMPREHENSIVE MODEL TESTING
+2025-12-19 14:21:24,505 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:21:24,506 - testing - INFO - ==================================================
+2025-12-19 14:21:24,506 - testing - INFO - Starting Model Testing
+2025-12-19 14:21:24,506 - testing - INFO - ==================================================
+2025-12-19 14:21:24,538 - testing - INFO - Generating detailed evaluation report...
+2025-12-19 14:21:24,733 - testing - INFO - 
+--- Test Set Performance Summary ---
+2025-12-19 14:21:24,733 - testing - INFO - ROC-AUC Score: 0.9555
+2025-12-19 14:21:24,733 - testing - INFO - Precision-Recall AUC: 0.8423
+2025-12-19 14:21:24,733 - testing - INFO - 
+Class 1 (Machine Failure) Metrics:
+2025-12-19 14:21:24,733 - testing - INFO -   Recall: 0.7702
+2025-12-19 14:21:24,734 - testing - INFO -   Precision: 0.9745
+2025-12-19 14:21:24,734 - testing - INFO -   F1-Score: 0.8604
+2025-12-19 14:21:24,734 - testing - INFO - 
+Confusion Matrix:
+2025-12-19 14:21:24,734 - testing - INFO -   TN: 40272, FP: 13
+2025-12-19 14:21:24,734 - testing - INFO -   FN: 148, TP: 496
+2025-12-19 14:21:24,734 - testing - INFO - 
+Analyzing feature importance...
+2025-12-19 14:21:24,736 - testing - INFO - 
+Top 10 Most Important Features:
+2025-12-19 14:21:24,737 - testing - INFO -   Tool_wear_min_: 633.0000
+2025-12-19 14:21:24,737 - testing - INFO -   Torque_Nm_: 612.0000
+2025-12-19 14:21:24,737 - testing - INFO -   Air_temperature_K_: 571.0000
+2025-12-19 14:21:24,737 - testing - INFO -   Rotational_speed_rpm_: 567.0000
+2025-12-19 14:21:24,737 - testing - INFO -   Type_encoded: 80.0000
+2025-12-19 14:21:24,738 - testing - INFO -   TWF: 77.0000
+2025-12-19 14:21:24,738 - testing - INFO -   OSF: 64.0000
+2025-12-19 14:21:24,738 - testing - INFO -   HDF: 54.0000
+2025-12-19 14:21:24,738 - testing - INFO -   PWF: 53.0000
+2025-12-19 14:21:24,738 - testing - INFO -   RNF: 0.0000
+2025-12-19 14:21:25,141 - testing - INFO - Confusion matrix plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\confusion_matrix.png
+2025-12-19 14:21:25,407 - testing - INFO - ROC curve plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\roc_curve.png
+2025-12-19 14:21:25,607 - testing - INFO - Precision-Recall curve plot saved to D:\December\code\tata_steel\Capston_project_ML_Tata_Steel_Machine_Failure_Prediction\logs\plots\precision_recall_curve.png
+2025-12-19 14:21:25,614 - testing - INFO - 
+Model testing completed successfully
+2025-12-19 14:21:25,614 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:21:25,615 - main_pipeline - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2025-12-19 14:21:25,615 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:21:25,615 - main_pipeline - INFO - Total execution time: 0:00:46.726638
+2025-12-19 14:21:25,615 - main_pipeline - INFO - Pipeline ended at: 2025-12-19 14:21:25
+2025-12-19 14:21:25,615 - main_pipeline - INFO - 
+======================================================================
+2025-12-19 14:21:25,615 - main_pipeline - INFO - FINAL RESULTS SUMMARY
+2025-12-19 14:21:25,616 - main_pipeline - INFO - ======================================================================
+2025-12-19 14:21:25,616 - main_pipeline - INFO - ROC-AUC Score: 0.9555
+2025-12-19 14:21:25,616 - main_pipeline - INFO - Precision-Recall AUC: 0.8423
+2025-12-19 14:21:25,616 - main_pipeline - INFO - Test Recall (Class 1): 0.7702
+2025-12-19 14:21:25,616 - main_pipeline - INFO - Test Precision (Class 1): 0.9745
+2025-12-19 14:21:25,617 - main_pipeline - INFO - Test F1-Score (Class 1): 0.8604
+2025-12-19 14:21:25,617 - main_pipeline - INFO - 
+[SUCCESS] All models and artifacts have been saved successfully
+2025-12-19 14:21:25,617 - main_pipeline - INFO - [INFO] Check the 'models/saved_models/' directory for trained models
+2025-12-19 14:21:25,617 - main_pipeline - INFO - [INFO] Check the 'logs/plots/' directory for visualization plots

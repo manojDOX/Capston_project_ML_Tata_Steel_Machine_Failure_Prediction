@@ -1,0 +1,128 @@
+2025-12-19 14:06:20,390 - preprocessing - INFO - Starting preprocessing pipeline...
+2025-12-19 14:06:20,390 - preprocessing - INFO - Cleaning column names...
+2025-12-19 14:06:20,406 - preprocessing - INFO - Column names cleaned successfully
+2025-12-19 14:06:20,407 - preprocessing - INFO - Checking for missing values...
+2025-12-19 14:06:20,418 - preprocessing - INFO - No missing values found
+2025-12-19 14:06:20,419 - preprocessing - INFO - Encoding categorical features...
+2025-12-19 14:06:20,427 - preprocessing - INFO - Type column encoded: L=1, M=2, H=3
+2025-12-19 14:06:20,427 - preprocessing - INFO - Selecting final features for modeling...
+2025-12-19 14:06:20,441 - preprocessing - INFO - Final dataset shape: (136429, 11)
+2025-12-19 14:06:20,441 - preprocessing - INFO - Preprocessing pipeline completed successfully
+2025-12-19 14:06:20,441 - preprocessing - INFO - Splitting data into train and test sets...
+2025-12-19 14:06:20,493 - preprocessing - INFO - Training set shape: X=(95500, 10), y=(95500,)
+2025-12-19 14:06:20,493 - preprocessing - INFO - Test set shape: X=(40929, 10), y=(40929,)
+2025-12-19 14:06:20,495 - preprocessing - INFO - Class distribution in train: {0: 93996, 1: 1504}
+2025-12-19 14:06:20,496 - preprocessing - INFO - Class distribution in test: {0: 40285, 1: 644}
+2025-12-19 14:06:20,497 - preprocessing - INFO - Saving processed data...
+2025-12-19 14:06:20,852 - preprocessing - INFO - Processed data saved successfully
+2025-12-19 14:06:20,853 - training - INFO - ==================================================
+2025-12-19 14:06:20,854 - training - INFO - Training Base LightGBM Model
+2025-12-19 14:06:20,854 - training - INFO - ==================================================
+2025-12-19 14:06:20,854 - training - INFO - Fitting base model...
+2025-12-19 14:06:23,941 - training - INFO - Base model training completed successfully
+2025-12-19 14:06:23,946 - training - INFO - 
+==================================================
+2025-12-19 14:06:23,946 - training - INFO - Evaluating Base LightGBM Model
+2025-12-19 14:06:23,947 - training - INFO - ==================================================
+2025-12-19 14:06:24,157 - training - INFO - 
+--- Training Set Performance ---
+2025-12-19 14:06:24,213 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99     93996
+           1       0.47      0.98      0.63      1504
+
+    accuracy                           0.98     95500
+   macro avg       0.73      0.98      0.81     95500
+weighted avg       0.99      0.98      0.99     95500
+
+2025-12-19 14:06:24,214 - training - INFO - 
+--- Test Set Performance ---
+2025-12-19 14:06:24,240 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99     40285
+           1       0.41      0.84      0.55       644
+
+    accuracy                           0.98     40929
+   macro avg       0.70      0.91      0.77     40929
+weighted avg       0.99      0.98      0.98     40929
+
+2025-12-19 14:06:24,241 - training - INFO - 
+--- Key Metrics for Machine Failure (Class 1) ---
+2025-12-19 14:06:24,241 - training - INFO - Test Recall: 0.8385
+2025-12-19 14:06:24,241 - training - INFO - Test Precision: 0.4122
+2025-12-19 14:06:24,241 - training - INFO - Test F1-Score: 0.5527
+2025-12-19 14:06:24,246 - training - INFO - 
+Test Confusion Matrix:
+[[39515   770]
+ [  104   540]]
+2025-12-19 14:06:24,247 - training - INFO - ==================================================
+2025-12-19 14:06:24,247 - training - INFO - Hyperparameter Tuning with Randomized Search
+2025-12-19 14:06:24,247 - training - INFO - ==================================================
+2025-12-19 14:06:24,247 - training - INFO - Setting up RandomizedSearchCV with 10 iterations...
+2025-12-19 14:06:24,247 - training - INFO - Starting hyperparameter search...
+2025-12-19 14:06:51,349 - training - INFO - 
+Best CV Score (recall): 0.8796
+2025-12-19 14:06:51,349 - training - INFO - 
+Best Parameters:
+2025-12-19 14:06:51,349 - training - INFO -   reg_lambda: 0
+2025-12-19 14:06:51,349 - training - INFO -   reg_alpha: 0.8
+2025-12-19 14:06:51,350 - training - INFO -   num_leaves: 15
+2025-12-19 14:06:51,350 - training - INFO -   n_estimators: 100
+2025-12-19 14:06:51,350 - training - INFO -   min_child_weight: 0.01
+2025-12-19 14:06:51,350 - training - INFO -   min_child_samples: 10
+2025-12-19 14:06:51,350 - training - INFO -   max_depth: -1
+2025-12-19 14:06:51,350 - training - INFO -   learning_rate: 0.01
+2025-12-19 14:06:51,351 - training - INFO -   class_weight: balanced
+2025-12-19 14:06:51,356 - training - INFO - 
+Hyperparameter tuning completed successfully
+2025-12-19 14:06:51,356 - training - INFO - 
+==================================================
+2025-12-19 14:06:51,356 - training - INFO - Evaluating Tuned LightGBM Model
+2025-12-19 14:06:51,357 - training - INFO - ==================================================
+2025-12-19 14:06:51,513 - training - INFO - 
+--- Training Set Performance ---
+2025-12-19 14:06:51,568 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97     93996
+           1       0.21      0.90      0.34      1504
+
+    accuracy                           0.95     95500
+   macro avg       0.61      0.92      0.66     95500
+weighted avg       0.99      0.95      0.96     95500
+
+2025-12-19 14:06:51,569 - training - INFO - 
+--- Test Set Performance ---
+2025-12-19 14:06:51,600 - training - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97     40285
+           1       0.21      0.86      0.34       644
+
+    accuracy                           0.95     40929
+   macro avg       0.60      0.91      0.66     40929
+weighted avg       0.99      0.95      0.96     40929
+
+2025-12-19 14:06:51,600 - training - INFO - 
+--- Key Metrics for Machine Failure (Class 1) ---
+2025-12-19 14:06:51,601 - training - INFO - Test Recall: 0.8634
+2025-12-19 14:06:51,601 - training - INFO - Test Precision: 0.2104
+2025-12-19 14:06:51,601 - training - INFO - Test F1-Score: 0.3383
+2025-12-19 14:06:51,604 - training - INFO - 
+Test Confusion Matrix:
+[[38198  2087]
+ [   88   556]]
+2025-12-19 14:06:51,604 - training - INFO - 
+==================================================
+2025-12-19 14:06:51,604 - training - INFO - Model Comparison Summary
+2025-12-19 14:06:51,604 - training - INFO - ==================================================
+2025-12-19 14:06:51,604 - training - INFO - 
+Class 1 (Machine Failure) Metrics:
+2025-12-19 14:06:51,605 - training - INFO - 
+Metric          Base Model      Tuned Model     Change         
+2025-12-19 14:06:51,605 - training - INFO - ------------------------------------------------------------
+2025-12-19 14:06:51,605 - training - INFO - Recall          0.8385          0.8634          +0.0248
+2025-12-19 14:06:51,605 - training - INFO - Precision       0.4122          0.2104          -0.2018
+2025-12-19 14:06:51,605 - training - INFO - F1-Score        0.5527          0.3383          -0.2144
