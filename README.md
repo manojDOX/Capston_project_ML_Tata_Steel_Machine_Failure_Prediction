@@ -4,6 +4,10 @@
 
 This machine learning project develops a robust predictive model for TATA Steel to forecast machinery failures before they occur, enabling a strategic shift from costly reactive maintenance to efficient proactive maintenance.
 
+## Deployed Website
+🔗 **Live Application:**  
+👉 [Click here to open the Streamlit App](https://capstonprojectmltatasteelmachinefailureprediction-cj7cwk7jbxiu.streamlit.app/)
+
 ### Business Problem
 
 Unpredictable machine breakdowns cause major financial losses and operational disruptions in steel manufacturing. Without data-driven forecasting, maintenance occurs only after failures, leading to:
